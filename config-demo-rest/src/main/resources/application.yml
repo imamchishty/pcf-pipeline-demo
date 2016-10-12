@@ -5,6 +5,15 @@
 database-pool-size: 1
 env-message: dev
 
+
+security:
+  basic:
+    enabled: false # turn off securing our application endpoints
+
+management:
+  security:
+    enabled: false # turn off securing the actuator endpoints
+
 spring:
   application.version: @pom.version@
 
