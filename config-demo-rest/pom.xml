@@ -130,10 +130,16 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Config server, see bootstrap.yml -->
+        <!-- Config server, see bootstrap.yml
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>-->
+
+        <dependency>
+            <groupId>io.pivotal.spring.cloud</groupId>
+            <artifactId>spring-cloud-services-starter-config-client</artifactId>
+            <version>1.2.0.RELEASE</version>
         </dependency>
 
         <dependency>
