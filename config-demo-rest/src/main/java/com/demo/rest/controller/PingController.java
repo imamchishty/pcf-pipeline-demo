@@ -25,6 +25,20 @@ public class PingController {
     @Value("${spring.application.name}")
     private String appName;
 
+    @Value("${database-pool-size}")
+    private int dbPool;
+
+    @Value("${env-message}")
+    private String message;
+
+
+    @ThreadContext // writes to the xxx-audit.log
+    @RequestMapping(path = ApiConstants.API_CONFIG, method = RequestMethod.GET)
+    public ResponseEntity<String> config(){
+        return new ResponseEntity<>("Environment [" + message + "], DB Pool size [" + dbPool + "].", HttpStatus.OK);
+    }
+
+
     /**
      * Used to provide tools a HTTP 200 OK when service is running.
      */
