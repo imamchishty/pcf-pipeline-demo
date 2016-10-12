@@ -1,6 +1,10 @@
 # When you're ready to move to spring-cloud-config then this file should be served by that service
 # Eureka server has been added and is available as a sibling to the rest module.
 
+
+database-pool-size: 1
+env-message: dev
+
 spring:
   application.version: @pom.version@
 
@@ -8,13 +12,13 @@ server:
   port: 8080
 
 # When Eureka is available set accordingly
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8071/eureka/
-  instance:
-    status-page-url: ${management.contextPath}/info
-    health-check-url-path: ${management.contextPath}/health
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8071/eureka/
+#  instance:
+#    status-page-url: ${management.contextPath}/info
+#    health-check-url-path: ${management.contextPath}/health
 
 management.contextPath: /admin
 
@@ -45,7 +49,7 @@ account.service.name: ${spring.application.name}
 
 ---
 spring:
-  profiles: development
+  profiles: dev
 
 
 ---
@@ -55,7 +59,7 @@ spring:
 
 ---
 spring:
-   profiles: production
+   profiles: live
 
 
 
