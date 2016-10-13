@@ -38,7 +38,7 @@ public class PingController {
     @RequestMapping(path = ApiConstants.API_CONFIG, method = RequestMethod.GET)
     public ResponseEntity<String> config(){
         return new ResponseEntity<>("Environment [" + message + "], DB Pool size [" + dbPool
-                + "], TX Timeout [" + dbTxTimeOut + "].", HttpStatus.OK);
+                + "], TX Timeout [" + dbTxTimeOut + "]. Hello everyone!", HttpStatus.OK);
     }
 
 
