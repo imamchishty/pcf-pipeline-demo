@@ -7,6 +7,7 @@ import com.shedhack.exception.core.BusinessException;
 import com.shedhack.thread.context.annotation.ThreadContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import java.util.*;
 /**
  * This is an example controller with a feign client.
  */
+@RefreshScope
 @RestController
 public class PingController {
 
@@ -38,7 +40,7 @@ public class PingController {
     @RequestMapping(path = ApiConstants.API_CONFIG, method = RequestMethod.GET)
     public ResponseEntity<String> config(){
         return new ResponseEntity<>("Environment [" + message + "], DB Pool size [" + dbPool
-                + "], TX Timeout [" + dbTxTimeOut + "]. Hello everyone!", HttpStatus.OK);
+                + "], TX Timeout [" + dbTxTimeOut + "].", HttpStatus.OK);
     }
 
 
