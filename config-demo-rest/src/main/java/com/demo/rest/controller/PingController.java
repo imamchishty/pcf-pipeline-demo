@@ -31,11 +31,14 @@ public class PingController {
     @Value("${env-message}")
     private String message;
 
+    @Value("${database-tx-timeout:200}")
+    private String dbTxTimeOut;
 
     @ThreadContext // writes to the xxx-audit.log
     @RequestMapping(path = ApiConstants.API_CONFIG, method = RequestMethod.GET)
     public ResponseEntity<String> config(){
-        return new ResponseEntity<>("Environment [" + message + "], DB Pool size [" + dbPool + "].", HttpStatus.OK);
+        return new ResponseEntity<>("Environment [" + message + "], DB Pool size [" + dbPool
+                + "], TX Timeout [" + dbTxTimeOut + "]", HttpStatus.OK);
     }
 
 
